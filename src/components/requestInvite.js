@@ -91,7 +91,7 @@ export default class RequestInvite extends Component{
 				<div className="form-container">
           <div className="tableDisplay">
             <div className="tableCellDisplay">
-              <h3>Registration</h3>
+              <h3>Request Invite</h3>
               {message ? <div className="status">{message}</div> : undefined}
               <Form 
                   metadata={this.metadata} 
