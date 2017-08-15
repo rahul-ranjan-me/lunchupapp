@@ -28,15 +28,21 @@ html,body, #root, [data-reactroot], .container-seat-chooser{
 }
 
 body{
-	background: #1f1f1f;
-    color: #dcdcdc;
+	color: #333;
 }
 
 .main-container{
-	padding:10px;
-	clear:both;
-	height:85%;
-	position:relative;
+	height:100%;
+    background:#ccc;
+    width:780px;
+    margin:0 auto;
+    position:relative;
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#cdeb8e+0,a5c956+100;Green+3D+%232 */
+    background: rgb(205,235,142); /* Old browsers */
+    background: -moz-linear-gradient(top, rgba(205,235,142,1) 0%, rgba(165,201,86,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, rgba(205,235,142,1) 0%,rgba(165,201,86,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, rgba(205,235,142,1) 0%,rgba(165,201,86,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeb8e', endColorstr='#a5c956',GradientType=0 ); /* IE6-9 */
 }
 
 .clearfix:after {

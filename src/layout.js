@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Header from './structure/header';
+import Footer from './structure/footer';
 
 
 require('./css/common.css');
@@ -11,11 +11,11 @@ export default class Layout extends Component {
 
 	render(){
 		return (
-			<div>
-				<Header />
-				<div className="main-container clearfix">
+			<div className="main-container">
+				<div>
 					{this.props.children}
 				</div>
+				<Footer />
 			</div>
 		);
 	}

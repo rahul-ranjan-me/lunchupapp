@@ -6,7 +6,9 @@ import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import allReducers from './reducers';
 import Layout from './layout';
-import App from './components/app';
+import Login from './components/login';
+import Register from './components/register';
+import RequestInvite from './components/requestInvite';
 import Page2 from './components/page2';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -16,7 +18,9 @@ ReactDOM.render(
 	<Provider store={ store }>
 		<Router history={ browserHistory }>
 			<Route path="/" component={ Layout }>
-				<IndexRoute component={ App } />
+				<IndexRoute component={ RequestInvite } />
+				<Route path="register" component={ Register } />
+				<Route path="login" component={ Login } />
 				<Route path="page2" component={ Page2 } />
 			</Route>
 		</Router>
