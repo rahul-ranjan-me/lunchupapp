@@ -32,6 +32,13 @@ export default class Footer extends Component {
 		}) 
 	}
 
+	componentWillReceiveProps(nextProps){
+		this.token = window.sessionStorage.getItem('token')
+		this.setState({
+			token : this.token 
+		}) 
+	}
+
 	goToLink(link){
 		browserHistory.push(link.hash)
 	}
@@ -53,12 +60,14 @@ export default class Footer extends Component {
 	render(){
 		const footerLinkContent = this.footerLinks.map(this.createFooterLink.bind(this))
 		return(
-			<div className="footer">
-				<ul>
-					{ footerLinkContent }
-					{this.state.token !== 'null' ? 
-						<li onClick={() => { this.goToAuth() }}>Logout</li> : null }
-				</ul>
+			<div>
+			{this.state.token !== 'null' ? 
+				<div className="footer">
+					<ul>
+						{ footerLinkContent }
+						<li onClick={() => { this.goToAuth() }}>Logout</li>
+					</ul>
+				</div> : null }
 			</div>
 		)
 	}
