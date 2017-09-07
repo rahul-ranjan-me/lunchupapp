@@ -73,7 +73,7 @@ export default class RequestInvite extends Component{
 			data: data,
 			success: (response) => {
 				this.setState({message: 'Request Completed Successfully'})
-				//browserHistory.push('/login')
+				browserHistory.push('/inviteList')
 			},
       error: (err) => {
 				console.log(err)
