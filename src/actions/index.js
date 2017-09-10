@@ -1,6 +1,13 @@
-export const selectUser = (user) => {
+export const inviteListGet = (inviteList) => {
 	return {
-		type: 'USER_SELECTED',
-		payload : user
+		type: 'INVITES_GET',
+		payload : inviteList
+	}
+};
+
+export const newInviteSet = (invite) => {
+	return {
+		type: 'NEW_INVITE',
+		payload : invite
 	}
 };

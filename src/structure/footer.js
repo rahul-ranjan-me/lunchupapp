@@ -8,15 +8,16 @@ export default class Footer extends Component {
 		this.goToLink = this.goToLink.bind(this)
 		this.footerLinks = [
 			{
-				label: 'Request Invite'
-			,	icon: 'home'
-			,	hash: '/'	
-			}
-		,	{
 				label: 'Invite List'
 			,	icon: 'home'
-			,	hash: 'inviteList'
+			,	hash: '/'
 			}
+		,	{
+				label: 'Request Invite'
+			,	icon: 'requestInvite'
+			,	hash: 'requestInvite'	
+			}
+		
 		]
 		this.state = {
 			token: 'null'

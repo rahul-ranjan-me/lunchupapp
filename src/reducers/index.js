@@ -1,10 +1,8 @@
 import { combineReducers } from 'redux';
-import UsersReducer from './reducer-users';
-import ActiveUserReducer from './reducer-active-user'
+import inviteListReducer from './invite-list';
 
 const allReducers = combineReducers({
-	users: UsersReducer,
-	activeUser : ActiveUserReducer
+	inviteList: inviteListReducer
 });
 
 export default allReducers;

@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import { newInviteSet } from '../actions/index';
 import { browserHistory, Link } from 'react-router'
 import $ from 'jquery'
 import Form from './form'
@@ -7,7 +10,7 @@ import config from '../config'
 import '../css/formPage.css'
 import '../css/requestInvite.css'
 
-export default class RequestInvite extends Component{
+class RequestInvite extends Component{
 	constructor(props){
 		super(props)
 
@@ -72,8 +75,9 @@ export default class RequestInvite extends Component{
 			dataType : 'JSON',
 			data: data,
 			success: (response) => {
+				this.props.newInviteSet(data)
 				this.setState({message: 'Request Completed Successfully'})
-				browserHistory.push('/inviteList')
+				browserHistory.push('/')
 			},
       error: (err) => {
 				console.log(err)
@@ -105,3 +109,18 @@ export default class RequestInvite extends Component{
 		)
 	}
 }
+
+function mapStateToProps(state){
+  return {
+		invite : state.invite
+	}
+}
+
+
+function matchDispatchToProps(dispatch){
+	return bindActionCreators({
+		newInviteSet : newInviteSet
+	}, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(RequestInvite);

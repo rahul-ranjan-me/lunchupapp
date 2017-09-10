@@ -1,4 +1,7 @@
 import React, { Component } from 'react'
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import { inviteListGet } from '../actions/index';
 import $ from 'jquery'
 import config from '../config'
 
@@ -7,9 +10,6 @@ import '../css/inviteList.css'
 class InviteList extends Component{
     constructor(props){
         super(props)
-        this.state = {
-            inviteList : []
-        }
     }
 
     componentDidMount(){
@@ -21,9 +21,7 @@ class InviteList extends Component{
 			method: 'get',
 			dataType : 'JSON',
 			success: (response) => {
-				this.setState({
-                    inviteList : response
-                })
+                this.props.inviteListGet(response)
 			},
             error: (err) => {
                 this.setState({message: err.responseJSON.err ? err.responseJSON.err.message : err.responseJSON.message})
@@ -46,7 +44,7 @@ class InviteList extends Component{
     }
 
     render(){
-        const invites = this.state.inviteList.map(this.createInvite.bind(this))
+        const invites = this.props.inviteList.map(this.createInvite.bind(this))
         return(
             <div className="invite-list-container">
                 <ul>{ invites }</ul>
@@ -55,4 +53,17 @@ class InviteList extends Component{
     }
 }
 
-export default InviteList;
+function mapStateToProps(state){
+    return {
+		inviteList : state.inviteList
+	}
+}
+
+
+function matchDispatchToProps(dispatch){
+	return bindActionCreators({
+		inviteListGet : inviteListGet
+	}, dispatch);
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(InviteList);

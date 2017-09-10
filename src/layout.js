@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import Footer from './structure/footer';
 
-
 require('./css/common.css');
 
 export default class Layout extends Component {
@@ -12,7 +11,7 @@ export default class Layout extends Component {
 	render(){
 		return (
 			<div className="main-container">
-				<div>
+				<div className="content-container">
 					{this.props.children}
 				</div>
 				<Footer />
